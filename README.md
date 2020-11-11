@@ -1,145 +1,102 @@
-# Composer template for Drupal projects
+# UN Drupal Example Theme
 
-[![Build Status](https://travis-ci.org/drupal-composer/drupal-project.svg?branch=8.x)](https://travis-ci.org/drupal-composer/drupal-project)
+## Create your project
 
-This project template provides a starter kit for managing your site
-dependencies with [Composer](https://getcomposer.org/).
+- [ ] Create a local project folder
 
-If you want to know how to use it as replacement for
-[Drush Make](https://github.com/drush-ops/drush/blob/8.x/docs/make.md) visit
-the [Documentation on drupal.org](https://www.drupal.org/node/2471553).
+- [ ] Create your project in this folder (using Composer) from:
+      https://github.com/drupal-composer/drupal-project.
 
-## Usage
+## Set up your local dev environment
 
-First you need to [install composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
+- [ ] Open Dev Desktop
+- [ ] Select "Start with an existing Drupal site located on my computer"
+- [ ] Set your "Local codebase folder" to the /web folder in the project you
+      created above
+- [ ] Set your "Local site name"
+- [ ] Set the PHP version to 7.3
+- [ ] Select "Create a new database", and set a name
+- [ ] Click OK
+- [ ] Go to your "Local site" URL in browser and install the site with the
+      Standard installation profile
 
-> Note: The instructions below refer to the [global composer installation](https://getcomposer.org/doc/00-intro.md#globally).
-You might need to replace `composer` with `php composer.phar` (or similar)
-for your setup.
+## Repository
 
-After that you can create the project:
+- [ ] Create a repository for your project on Github.com.
+- [ ] Commit your project to the repository.
 
-```
-composer create-project drupal-composer/drupal-project:8.x-dev some-dir --no-interaction
-```
+## Languages
 
-With `composer require ...` you can download new dependencies to your
-installation.
+- [ ] Install the other official UN languages (Arabic, Chinese, French, Russian
+      and Spanish).
 
-```
-cd some-dir
-composer require drupal/devel:~1.0
-```
+## Theme
 
-The `composer create-project` command passes ownership of all files to the
-project that is created. You should create a new git repository, and commit
-all files not excluded by the .gitignore file.
+- [ ] Install the Bootstrap theme.
+- [ ] Create a custom sub-theme of Bootstrap.
 
-## What does the template do?
+## Landing page
 
-When installing the given `composer.json` some tasks are taken care of:
+- [ ] Build a landing page (use www.unhabitat.org/old as a source/reference) with
+      the features below.
+- [ ] Install modules and create content types as needed, and feel free to apply your own design.
 
-* Drupal will be installed in the `web`-directory.
-* Autoloader is implemented to use the generated composer autoloader in `vendor/autoload.php`,
-  instead of the one provided by Drupal (`web/vendor/autoload.php`).
-* Modules (packages of type `drupal-module`) will be placed in `web/modules/contrib/`
-* Theme (packages of type `drupal-theme`) will be placed in `web/themes/contrib/`
-* Profiles (packages of type `drupal-profile`) will be placed in `web/profiles/contrib/`
-* Creates default writable versions of `settings.php` and `services.yml`.
-* Creates `web/sites/default/files`-directory.
-* Latest version of drush is installed locally for use at `vendor/bin/drush`.
-* Latest version of DrupalConsole is installed locally for use at `vendor/bin/drupal`.
-* Creates environment variables based on your .env file. See [.env.example](.env.example).
+Use the Devel modules to generate dummy content.
 
-## Updating Drupal Core
+- [ ] UN-Habitat logo
+- [ ] Search box
+- [ ] Language switcher
+- [ ] Navigation/menu bar
+- [ ] News Carousel/Slider/Slideshow (with image, title, date, and summary)
+- [ ] News and Stories listing (with image and title)
+- [ ] Video listing (with embedded YouTube videos)
+- [ ] Tabbed display as seen on unhabitat.org/old
+- [ ] Footer menu
 
-This project will attempt to keep all of your Drupal Core files up-to-date; the
-project [drupal/core-composer-scaffold](https://github.com/drupal/core-composer-scaffold)
-is used to ensure that your scaffold files are updated every time drupal/core is
-updated. If you customize any of the "scaffolding" files (commonly .htaccess),
-you may need to merge conflicts if any of your modified files are updated in a
-new release of Drupal core.
+## Other
 
-Follow the steps below to update your core files.
+- [ ] Create a captcha-protected Contact form.
 
-1. Run `composer update drupal/core drupal/core-dev --with-dependencies` to update Drupal Core and its dependencies.
-2. Run `git diff` to determine if any of the scaffolding files have changed.
-   Review the files for any changes and restore any customizations to
-  `.htaccess` or `robots.txt`.
-1. Commit everything all together in a single commit, so `web` will remain in
-   sync with the `core` when checking out branches or running `git bisect`.
-1. In the event that there are non-trivial conflicts in step 2, you may wish
-   to perform these steps on a branch, and use `git merge` to combine the
-   updated core files with your customized files. This facilitates the use
-   of a [three-way merge tool such as kdiff3](http://www.gitshah.com/2010/12/how-to-setup-kdiff-as-diff-tool-for-git.html). This setup is not necessary if your changes are simple;
-   keeping all of your modifications at the beginning or end of the file is a
-   good strategy to keep merges easy.
+## Custom development
 
-## Generate composer.json from existing project
+### Module
 
-With using [the "Composer Generate" drush extension](https://www.drupal.org/project/composer_generate)
-you can now generate a basic `composer.json` file from an existing project. Note
-that the generated `composer.json` might differ from this project's file.
+### Create a custom module that:
 
+- [ ] Generates a visualisation (chart/graph) of the number of nodes of each
+      content type on the site.
+- [ ] Provide a block that renders the chart.
+- [ ] Caches the block and invalidates the cache once a week.
 
-## FAQ
+## Theme
 
-### Should I commit the contrib modules I download?
+- [ ] Implement the "Roboto" Google font as the default font .
+- [ ] Add a custom region to your sub-theme that will contain the
+      visualisation block you created above.
+- [ ] Place this region/block at the bottom of the landing page.
+- [ ] Override the 404 (Page not found) page to show a custom message and a
+      search box.
+- [ ] Create a theme setting to allow the 404 message to be specified in your
+      sub-theme’s settings page.
 
-Composer recommends **no**. They provide [argumentation against but also
-workrounds if a project decides to do it anyway](https://getcomposer.org/doc/faqs/should-i-commit-the-dependencies-in-my-vendor-directory.md).
+## Configuration Management
 
-### Should I commit the scaffolding files?
+- [ ] Using the "Configuration Split" module, create 2 separate configuration
+      profiles:
+- [ ] Development - [ ] This will have the complete site configuration
+- [ ] Production - [ ] This should have the Devel, Views UI, Menu UI and Field
+      UI modules disabled.
+- [ ] Export the site configuration.
 
-The [Drupal Composer Scaffold](https://github.com/drupal/core-composer-scaffold) plugin can download the scaffold files (like
-index.php, update.php, …) to the web/ directory of your project. If you have not customized those files you could choose
-to not check them into your version control system (e.g. git). If that is the case for your project it might be
-convenient to automatically run the drupal-scaffold plugin after every install or update of your project. You can
-achieve that by registering `@composer drupal:scaffold` as post-install and post-update command in your composer.json:
+## Deployment
 
-```json
-"scripts": {
-    "post-install-cmd": [
-        "@composer drupal:scaffold",
-        "..."
-    ],
-    "post-update-cmd": [
-        "@composer drupal:scaffold",
-        "..."
-    ]
-},
-```
-### How can I apply patches to downloaded modules?
+- [ ] Make a dump of your database.
+- [ ] Commit the database dump and all your code and configuration to your
+      repository.
+- [ ] Compress the sites/default/files directory and commit it to your
+      repository.
+- [ ] Push your repository to Github.
 
-If you need to apply patches (depending on the project being modified, a pull
-request is often a better solution), you can do so with the
-[composer-patches](https://github.com/cweagans/composer-patches) plugin.
+## Report
 
-To add a patch to drupal module foobar insert the patches section in the extra
-section of composer.json:
-```json
-"extra": {
-    "patches": {
-        "drupal/foobar": {
-            "Patch description": "URL or local path to patch"
-        }
-    }
-}
-```
-### How do I switch from packagist.drupal-composer.org to packages.drupal.org?
-
-Follow the instructions in the [documentation on drupal.org](https://www.drupal.org/docs/develop/using-composer/using-packagesdrupalorg).
-
-### How do I specify a PHP version ?
-
-This project supports PHP 7.0 as minimum version (see [Drupal 8 PHP requirements](https://www.drupal.org/docs/8/system-requirements/drupal-8-php-requirements)), however it's possible that a `composer update` will upgrade some package that will then require PHP 7+.
-
-To prevent this you can add this code to specify the PHP version you want to use in the `config` section of `composer.json`:
-```json
-"config": {
-    "sort-packages": true,
-    "platform": {
-        "php": "7.0.33"
-    }
-},
-```
+Your repository URL:
